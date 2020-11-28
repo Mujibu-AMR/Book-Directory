@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Book Directory</title>
+        <link rel="stylesheet" href="styles.css" type="text/css"/>
+    </head>
+
+    <body>
+        <script>
+            function addRadio() {
+                document.getElementById('book_id-Text').type = "hidden";
+                document.getElementById('book_author-Text').type = "text";
+                document.getElementById('book_name-Text').type = "text";
+                document.getElementById('search').innerHTML = "Add";
+            }
+
+            function modifyRadio() {
+                document.getElementById('book_id-Text').type = "text";
+                document.getElementById('book_name-Text').type = "text";
+                document.getElementById('book_author-Text').type = "text";
+                document.getElementById('search').innerHTML = "Modify";
+            }
+
+            function deleteRadio() {
+                document.getElementById('book_id-Text').type = "text";
+                document.getElementById('book_author-Text').type = "hidden";
+                document.getElementById('book_name-Text').type = "hidden";
+                document.getElementById('search').innerHTML = "Delete";
+            }
+        </script>
+
+        <div id="center-part">
+            <h1>Book Directory</h1>
+            <input checked type="radio" name="options" onclick="addRadio()">Add</input>
+            <input type="radio" name="options" onclick="modifyRadio()">Modify</input>
+            <input type="radio" name="options" onclick="deleteRadio()">Delete</input>
+            <br><br>
+            <input id="book_id-Text" type="hidden" placeholder="Book ID"/> <br> <br>
+            <input id="book_name-Text" type="text" placeholder="Book Name"/> <br> <br>
+            <input id="book_author-Text" type="text" placeholder="Author(s) Name"/> <br>  <br>
+            <br>
+            <button id="search" onclick="requestHandle()">Add</button>
+        </div>
+
+        <div id="book-list-part">
+            <table id="book-table" align="center">
+                <tr>
+                    <th>ID</th>
+                    <th>Book Name</th>
+                    <th>Author(s) Name</th>
+                </tr>
+            </table>
+        </div>
+        <script src="app.js" type="text/javascript" onload="getRequest()"></script>
+
+    </body>
+
+</html>
