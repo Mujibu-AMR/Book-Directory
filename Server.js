@@ -45,15 +45,6 @@ http.createServer(function(req, res) {
 }).listen(8081);
 
 function getMethod(request, response) {
-    request.on('data', chunk => {
-        body += (chunk);
-        parsed = parse(body);
-
-    });
-    
-    //Parsing to JSON
-    request.on('end', () => {
-    });
     response.write(JSON.stringify(bookList));
     response.end();
 }
@@ -64,11 +55,13 @@ function postMethod(request, response) {
         parsed = parse(body);
 
     });
+
     //Parsing to JSON
     request.on('end', () => {
         if(parsed['bookname'] == "" || parsed['authorname'] == "")
             return
-        bookList[book_id] = {id: book_id, name : parsed['bookname'], authors : parsed['authorname'] };        response.write(JSON.stringify(bookList[book_id]));
+        bookList[book_id] = {id: book_id, name : parsed['bookname'], authors : parsed['authorname'] };
+        response.write(JSON.stringify(bookList[book_id]));
         response.end();
         book_id += 1;
     });    
