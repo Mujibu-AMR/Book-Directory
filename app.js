@@ -29,7 +29,7 @@ function requestHandle() {
     authorName.value = "";
 }
 
-//Add New Book to Table;
+//Add New Row to Table;
 function addRow(book) {
     row = document.createElement('tr');
     id = document.createElement('td');
